@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.core.project.model.dao.BoardMapper">
+
+	<!-- SQL - board리스트 조회 where조건 -->
+	<sql id="getBoardListWhere">
+		/* BoardMapper.getBoardListWhere - SQL - board리스트 조회 where조건 */
+
+		INNER JOIN bt_tb_comm_code c on (${boardAlias}.category_cd = c.comm_cd)
+		<where>
+			<if test="(category != null and category != '')">
+				<!-- 검색 - 카테고리  -->
+				AND ${boardAlias}.category_cd = #{ category }
+			</if>
+			<if test="keyword != null and keyword != ''">
+				<!-- 검색 - 검색어  -->
+				<choose>
+					<when test="(type != null and type != '') and ('title').equals(type)">
+						AND ${boardAlias}.title LIKE CONCAT('%', #{ keyword } , '%')
+					</when>
+					<when test="(type != null and type != '') and type.equals('cont')">
+						AND ${boardAlias}.cont LIKE CONCAT('%', #{ keyword }, '%')
+					</when>
+					<when test="(type != null and type != '') and type.equals('titleAndCont')">
+						AND ( ${boardAlias}.title LIKE CONCAT('%', #{ keyword }, '%')
+								OR ${boardAlias}.cont LIKE CONCAT('%', #{ keyword }, '%')
+							)
+					</when>
+					<when test="(type != null and type != '') and type.equals('writer_nm')">
+						AND ${boardAlias}.writer_nm LIKE CONCAT('%', #{ keyword }, '%')
+					</when>
+					<otherwise>
+						AND ( ${boardAlias}.title LIKE CONCAT('%', #{ keyword }, '%')
+								OR ${boardAlias}.cont LIKE CONCAT('%', #{ keyword }, '%')
+								OR ${boardAlias}.writer_nm LIKE CONCAT('%', #{ keyword }, '%')
+							)
+					</otherwise>
+				</choose>
+			</if>
+		</where>
+	</sql>
+
+	<!-- board리스트 조회 -->
+	<select id="getBoardList" parameterType="GetBoardListReqDTO" resultType="ViewBoardListResDTO">
+		/* BoardMapper.getBoardList - board리스트 조회 */
+		SELECT
+			ROW_NUMBER() OVER(
+				<choose>
+					<when test="(orderData.equals('reg'))">
+						ORDER BY reg_dt ASC, board_no ASC
+					</when>
+					<when test="(orderData.equals('cnt'))">
+						ORDER BY view_cnt ASC, board_no ASC
+					</when>
+					<otherwise>
+						ORDER BY board_no ASC
+					</otherwise>
+				</choose>
+				) AS row_num
+			, b.board_no
+			, b.category_cd
+			, b.title
+			, b.cont
+			, b.writer_nm
+			, b.view_cnt
+			, b.reg_dt
+			, b.password
+			, c.comm_cd
+			, c.comm_cd_nm
+			, IF(DATE_SUB(NOW(), INTERVAL 3 day) &lt; b.reg_dt, 1, 0) AS new_icon
+			, (SELECT count(*) FROM bt_tb_file btf WHERE btf.ref_tbl = 'bt_tb_board' AND btf.ref_pk = b.board_no) AS file_count
+		FROM bt_tb_board b
+		<include refid="getBoardListWhere"><property name="boardAlias" value="b"/></include>
+		ORDER BY row_num desc
+		LIMIT #{ sizePage } OFFSET #{ offsetData }
+	</select>
+
+	<!-- board리스트 count 조회 -->
+	<select id="getBoardCount" parameterType="GetBoardListReqDTO" resultType="int">
+		/* BoardMapper.getBoardCount - board리스트 count 조회 */
+		SELECT
+			COUNT(BOARD_NO)
+		FROM BT_TB_BOARD B
+		<include refid="getBoardListWhere"><property name="boardAlias" value="B"/></include>
+	</select>
+
+	<!-- 게시글 상세 조회 -->
+	<select id="getBoardDetail" resultType="ViewBoardListResDTO">
+		/* BoardMapper.getBoardDetail - board상세 조회 */
+		SELECT
+			b.title
+			, b.category_cd
+			, b.cont
+			, b.writer_nm
+			, b.reg_dt
+			, b.password
+			, c.comm_cd
+			, c.comm_cd_nm
+	 FROM bt_tb_board b
+	 LEFT JOIN bt_tb_comm_code c ON (b.category_cd = c.comm_cd)
+	 WHERE b.board_no = #{ board_no }
+	</select>
+
+	<!-- 조회수 증가 -->
+	<update id="updateCount">
+		/* BoardMapper.updateCount - board조회수 증가 */
+		UPDATE bt_tb_board
+		SET view_cnt = view_cnt + 1
+		WHERE board_no = #{ board_no }
+	</update>
+
+	<!-- 게시글 쓰기 (폼 데이터 등록) -->
+	<insert id="insertBoard">
+		/* BoardMapper.insertBoard - board저장 */
+		INSERT into bt_tb_board
+				(
+				category_cd
+				, title
+				, cont
+				, writer_nm
+				, password
+				, reg_dt
+			) VALUES (
+				#{ category_cd }
+				, #{ title }
+				, #{ cont }
+				, #{ writer_nm }
+				, #{ password }
+				, SYSDATE()
+				)
+	</insert>
+
+	<!-- 비밀번호 일치 여부  -->
+	<select id="findPassword" resultType="int">
+		/* BoardMapper.findPassword - board비밀번호 일치 여부 */
+		SELECT count(board_no)
+		FROM bt_tb_board
+		WHERE board_no = #{ board_no }
+		AND password = #{ password }
+	</select>
+
+
+</mapper>

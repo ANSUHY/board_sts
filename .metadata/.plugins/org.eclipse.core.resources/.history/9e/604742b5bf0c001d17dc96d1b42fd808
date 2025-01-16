@@ -1,0 +1,43 @@
+#서버 포트 설정
+server.port=8000
+
+# jsp 설정
+spring.mvc.view.prefix=/WEB-INF/views/
+spring.mvc.view.suffix=.jsp
+
+# mysql config
+spring.datasource.driver-class-name = net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+spring.datasource.url               = jdbc:log4jdbc:mysql://222.238.63.44:3306/coreintranet?serverTimezone=UTC&characterEncoding=UTF-8
+spring.datasource.username          = coreWeb
+spring.datasource.password          = coremaria!
+
+# mybatis config
+mybatis.type-aliases-package=com.core.project.model.dto
+mybatis.mapper-locations=mappers/*.xml
+
+# thymeleaf 설정
+spring.thymeleaf.prefix=classpath:/templates/
+spring.thymeleaf.suffix=.html
+spring.thymeleaf.cache=false
+spring.thymeleaf.view-names=thymeleaf/*
+
+# log level 설정 ( info 하위 level 로그까지 찍기 )
+logging.level.root=info
+
+# log file 30일 까지 보관
+logging.logback.rollingpolicy.max-history=30
+
+# log file 설정 ( 파일 size, 파일 이름 )
+logging.logback.rollingpolicy.max-file-size=100MB
+logging.file.name=src/main/resources/logs/demo.log
+
+# sql 로그 관련 설정
+logging.level.jdbc.sqlonly        = off
+logging.level.jdbc.sqltiming      = info
+logging.level.jdbc.resultsettable = info
+logging.level.jdbc.audit          = off
+logging.level.jdbc.resultset      = off
+logging.level.jdbc.connection     = off
+
+# 해당 설정을 하고 싶지 않다면 off 로 변경
+

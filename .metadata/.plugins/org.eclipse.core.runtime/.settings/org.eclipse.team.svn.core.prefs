@@ -1,0 +1,8 @@
+eclipse.preferences.version=1
+externalMigrateFromAuthorizationDatabase/isMigrated=true
+migrateFromAuthorizationDatabase/isMigrated=true
+repositories/20ff2aec7523001d1f5181d4d2347a24=20ff2aec7523001d1f5181d4d2347a24;https\://222.238.63.44/svn/bigdataic;https\://222.238.63.44/svn/bigdataic;branches;tags;trunk;true;0840e354-1e42-ab4d-9502-c0485b618b0b;https\://222.238.63.44/svn/bigdataic;;false;;;0
+repositories/504a9f367823001d10edd2cc8390c65f=504a9f367823001d10edd2cc8390c65f;svn\://222.238.63.43/svn_repo/KATRi/source/trunk/bigdata-tic-fo;svn\://222.238.63.43/svn_repo/KATRi/source/trunk/bigdata-tic-fo;branches;tags;trunk;true;24b14931-0f0f-49c3-b36b-6e57d9d891a5;svn\://222.238.63.43;;false;;;0
+repositories/70a534b75023001d108dc3bf4f84e8e1=70a534b75023001d108dc3bf4f84e8e1;svn\://222.238.63.43/svn_repo/KATRi/doc;svn\://222.238.63.43/svn_repo/KATRi/doc;branches;tags;trunk;true;24b14931-0f0f-49c3-b36b-6e57d9d891a5;svn\://222.238.63.43;;false;;;0
+repositories/e096db6a5d23001d1a3e94d612b4dfe7=e096db6a5d23001d1a3e94d612b4dfe7;svn\://222.238.63.43/svn_repo/KATRi/source/trunk/bigdata-tic-fo/trunk/bigdata-tic-fo;svn\://222.238.63.43/svn_repo/KATRi/source/trunk/bigdata-tic-fo/trunk/bigdata-tic-fo;branches;tags;trunk;true;24b14931-0f0f-49c3-b36b-6e57d9d891a5;svn\://222.238.63.43;;false;;;0
+synch_info/contigous=true

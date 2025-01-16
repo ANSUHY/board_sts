@@ -1,0 +1,287 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.repository.BoardRepository">
+
+	<!-- 검색 -->
+	<sql id="search">
+		<trim prefix="WHERE" prefixOverrides="AND">
+			<!-- 글 카테고리 -->
+			<if test="category != 'all'">
+				AND category_cd = #{category}
+			</if>
+			<if test="keyword != null and keyword != ''">
+				<!-- 검색 유형 -->
+				<choose>
+					<when test="searchType == 'title'">
+						AND title LIKE CONCAT('%', #{keyword}, '%')
+					</when>
+					<when test="searchType == 'content'">
+						AND cont LIKE CONCAT('%', #{keyword}, '%')
+					</when>
+					<when test="searchType == 'titleCont'">
+						AND (
+								title LIKE CONCAT('%', #{keyword}, '%')
+								OR
+								cont LIKE CONCAT('%', #{keyword}, '%')
+							)
+					</when>
+					<when test="searchType == 'writer'">
+						AND writer_nm LIKE CONCAT('%', #{keyword}, '%')
+					</when>
+					<otherwise>
+						AND (
+								title LIKE CONCAT('%', #{keyword}, '%')
+								OR
+								cont LIKE CONCAT('%', #{keyword}, '%')
+								OR
+								writer_nm LIKE CONCAT('%', #{keyword}, '%')
+							)
+					</otherwise>
+				</choose>
+			</if>
+		</trim>
+	</sql>
+
+	<!-- 게시글 목록 조회 -->
+	<select id="getBoardList" resultType="BoardDto" parameterType="Search">
+		SELECT
+			@ROWNUM := @ROWNUM + 1 AS rn,
+			bbs.*
+		FROM
+			(
+				SELECT
+					b.board_no,
+					b.title,
+					b.writer_nm,
+					b.view_cnt,
+					DATE_FORMAT(b.reg_dt, '%Y%m%d%H%i%s') AS reg_dt,
+					cc.comm_cd_nm,
+					(SELECT DATEDIFF(NOW(), b.reg_dt)) AS diffDay,
+					COUNT(DISTINCT f.file_no) AS fileCnt,
+					COUNT(DISTINCT r.reply_no) AS replyCnt
+				FROM
+					bt_tb_board b
+				INNER JOIN bt_tb_comm_code cc
+					ON b.category_cd = cc.comm_cd
+				LEFT JOIN bt_tb_file f
+					ON b.board_no = f.ref_pk
+				LEFT JOIN bt_tb_reply r
+				ON b.board_no = r.board_no
+				, (SELECT @ROWNUM := 0) AS rnum
+				<include refid="search"></include>
+				GROUP BY board_no
+				<!-- 정렬 -->
+				<trim prefix="ORDER BY">
+					<if test="sort == 'last'">reg_dt ASC</if>
+					<if test="sort == 'views'">view_cnt ASC</if>
+				</trim>
+			) AS bbs
+		ORDER BY rn DESC
+		LIMIT #{startList}, #{listSize}
+	</select>
+
+	<!-- 게시글 수 -->
+	<select id="getBoardTot" resultType="int" parameterType="Search">
+		SELECT
+			count(*)
+		FROM
+			bt_tb_board b
+		INNER JOIN bt_tb_comm_code cc
+			ON b.category_cd = cc.comm_cd
+		<include refid="search"></include>
+	</select>
+
+	<!-- 글 카테고리 -->
+	<select id="getCategory" resultType="Category">
+		SELECT
+			comm_cd,
+			comm_cd_nm
+		FROM
+			bt_tb_comm_code
+		WHERE
+			grp_cd = #{grp_cd}
+			AND
+			del_yn = 'N'
+		ORDER BY ord ASC
+	</select>
+
+	<!-- 글 상세보기 -->
+	<select id="getBoardDetail" resultType="BoardDto" parameterType="int">
+		SELECT
+			b.board_no,
+			b.title,
+			b.cont,
+			b.writer_nm,
+			DATE_FORMAT(b.reg_dt, '%Y-%m-%d %H:%i:%s') AS reg_dt,
+			b.category_cd,
+			cc.comm_cd_nm
+		FROM
+			bt_tb_board b
+		LEFT JOIN bt_tb_comm_code cc
+			ON b.category_cd = cc.comm_cd
+		WHERE
+			board_no = #{board_no}
+	</select>
+
+	<!-- 조회수 증가 -->
+	<update id="hitBoard" parameterType="int">
+		UPDATE
+			bt_tb_board
+		SET
+			view_cnt = IFNULL(view_cnt, 0) + 1
+		where
+			board_no = #{board_no}
+	</update>
+
+	<!-- 글 작성 -->
+	<insert id="writeBoard" parameterType="BoardDto">
+		INSERT INTO
+			bt_tb_board(
+				category_cd,
+				title,
+				cont,
+				writer_nm,
+				password,
+				view_cnt,
+				reg_dt
+			)
+		VALUES
+			(
+				#{category_cd},
+				#{title},
+				#{cont},
+				#{writer_nm},
+				#{password},
+				0,
+				NOW()
+			)
+		<selectKey resultType="int" keyProperty="board_no" order="AFTER">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+
+	<!--  글 수정 -->
+	<update id="updateBoard" parameterType="BoardDto">
+		UPDATE
+			bt_tb_board
+		SET
+			title = #{title},
+			category_cd  = #{category_cd},
+			cont = #{cont},
+			mod_dt = NOW()
+		WHERE
+			board_no = #{board_no}
+	</update>
+
+	<!-- 글 삭제 -->
+	<delete id="deleteBoard" parameterType="int">
+		DELETE FROM
+			bt_tb_board
+		WHERE
+			board_no = #{board_no}
+	</delete>
+
+	<!-- 글 수정 삭제 시 비밀번호 확인 -->
+	<select id="password_chk" resultType="String" parameterType="int">
+		SELECT
+			password
+		FROM
+			bt_tb_board
+		WHERE
+			board_no = #{board_no}
+	</select>
+
+	<!-- 답글 목록 조회 -->
+	<select id ="getReplyList" parameterType="ReplyReqDto" resultType="ReplyResDto">
+		SELECT
+			@ROWNUM := @ROWNUM + 1 AS rn,
+			btr_o.*
+		FROM
+			(
+				SELECT
+					reply_no,
+					content,
+					reply_nm,
+					DATE_FORMAT(indate, '%y/%m/%d') AS indate
+				FROM
+					bt_tb_reply AS btr,
+					(SELECT @ROWNUM := 0) AS r
+				WHERE board_no = #{board_no}
+				ORDER BY indate ASC
+			) AS btr_o
+		ORDER BY rn DESC
+		LIMIT #{startList}, #{listSize}
+	</select>
+
+	<!-- 답글 개수 -->
+	<select id="getReplyCount" parameterType="ReplyReqDto" resultType="int">
+		SELECT
+			count(*)
+		FROM
+			bt_tb_reply
+		WHERE
+			board_no = #{board_no}
+	</select>
+
+	<!-- 답글 작성 -->
+	<insert id="writeReply" parameterType="ReplyReqDto">
+		INSERT INTO
+			bt_tb_reply
+			(
+				board_no,
+				content,
+				reply_nm,
+				reply_password,
+				indate
+			)
+		VALUES
+			(
+				#{board_no},
+				#{content},
+				#{reply_nm},
+				#{reply_password},
+				NOW()
+			)
+	</insert>
+
+	<!-- 답글 삭제 -->
+	<delete id="deleteReply" parameterType="int">
+		DELETE FROM
+			bt_tb_reply
+		WHERE
+			reply_no = #{reply_no}
+	</delete>
+
+	<!-- 답글 수정 -->
+	<update id="updateReply" parameterType="ReplyReqDto">
+		UPDATE
+			bt_tb_reply
+		SET
+			content = #{content}
+		WHERE
+			reply_no = #{reply_no}
+	</update>
+
+	<!-- 답글 비밀번호 확인 -->
+	<select id="replyPwdChk" parameterType="ReplyReqDto" resultType="int">
+		SELECT
+			COUNT(*)
+		FROM
+			bt_tb_reply
+		WHERE
+			reply_no = #{reply_no}
+			AND
+			reply_password = #{reply_password}
+	</select>
+
+	<!-- 답글 가져오기 -->
+	<select id="getReply" parameterType="int" resultType="ReplyResDto">
+		SELECT
+			reply_nm,
+			content
+		FROM
+			bt_tb_reply
+		WHERE
+			reply_no = #{reply_no}
+	</select>
+
+</mapper>

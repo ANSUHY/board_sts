@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="openPopup"/>
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<list key="findhistory">
+			<item value="openPopup"/>
+			<item value="삭제"/>
+			<item value="file"/>
+			<item value="reqUrl"/>
+			<item value="sFileURL"/>
+			<item value="html5Upload"/>
+			<item value="multiplePhotoUpload"/>
+			<item value="goStartMode"/>
+		</list>
+		<list key="replacehistory">
+			<item value="@Transactional(rollbackFor = {Exception.class})"/>
+			<item value="bigdata-tic-bo"/>
+			<item value="sPage"/>
+			<item value="cur_page"/>
+			<item value="total_page"/>
+			<item value="s_page"/>
+			<item value="page_Size"/>
+			<item value="search_form"/>
+			<item value="fnGoDetail"/>
+			<item value="fnReturnPageHtml"/>
+			<item value="fnSearchBoardList"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="1256"/>
+		<item key="DIALOG_Y_ORIGIN" value="440"/>
+		<item key="DIALOG_WIDTH" value="324"/>
+		<item key="DIALOG_HEIGHT" value="380"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+	</section>
+</section>
