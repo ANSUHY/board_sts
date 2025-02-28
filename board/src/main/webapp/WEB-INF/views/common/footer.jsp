@@ -6,8 +6,8 @@
       <li><a href="#">이메일 무단수집거부</a></li>
     </ul>
     <address>
-      <b>(주)코아메소드</b> 서울시 영등포구 양평로 149 우림라이온스밸리 A동 704 ~ 706호 (선유도역 8번 출구)<br />
-      <b>TEL</b> 02-3141-9784
+      <b>안수현</b> 안수현안수현<br />
+      <b>TEL</b> 02-1111-1111
     </address>
     <p class="copy">Copyright(C) 2022 by coremethod. All Rights Reserved.</p>
     <div class="famliy-link">
