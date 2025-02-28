@@ -1850,3 +1850,155 @@ java.net.ConnectException: Connection timed out: getsockopt
 	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
 
 2025-02-28 15:46:55.638  INFO 15128 --- [RMI TCP Connection(10)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2025-02-28 16:40:16.170  INFO 27936 --- [restartedMain] com.core.project.CoreBoardApplication    : Starting CoreBoardApplication using Java 21.0.6 on DESKTOP-7H7S4EA with PID 27936 (C:\Users\SIANA\Desktop\workspace\java\board_sts\CoreBoard\target\classes started by SIANA in C:\Users\SIANA\Desktop\workspace\java\board_sts\CoreBoard)
+2025-02-28 16:40:16.172  INFO 27936 --- [restartedMain] com.core.project.CoreBoardApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-02-28 16:40:16.230  INFO 27936 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-02-28 16:40:16.230  INFO 27936 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-02-28 16:40:16.968  INFO 27936 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$a5ff8745] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2025-02-28 16:40:17.023  INFO 27936 --- [restartedMain] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-02-28 16:40:17.303  INFO 27936 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8001 (http)
+2025-02-28 16:40:17.315  INFO 27936 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-02-28 16:40:17.315  INFO 27936 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2025-02-28 16:40:17.545  INFO 27936 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2025-02-28 16:40:17.552  INFO 27936 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-02-28 16:40:17.553  INFO 27936 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1322 ms
+2025-02-28 16:40:18.132  INFO 27936 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-02-28 16:40:18.179  INFO 27936 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8001 (http) with context path ''
+2025-02-28 16:40:18.191  INFO 27936 --- [restartedMain] com.core.project.CoreBoardApplication    : Started CoreBoardApplication in 2.356 seconds (JVM running for 3.051)
+2025-02-28 16:42:59.502  INFO 27936 --- [restartedMain] com.core.project.CoreBoardApplication    : Starting CoreBoardApplication using Java 21.0.6 on DESKTOP-7H7S4EA with PID 27936 (C:\Users\SIANA\Desktop\workspace\java\board_sts\CoreBoard\target\classes started by SIANA in C:\Users\SIANA\Desktop\workspace\java\board_sts\CoreBoard)
+2025-02-28 16:42:59.503  INFO 27936 --- [restartedMain] com.core.project.CoreBoardApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-02-28 16:42:59.702  INFO 27936 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$a5ff8745] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2025-02-28 16:42:59.703  INFO 27936 --- [restartedMain] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-02-28 16:42:59.737  INFO 27936 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8001 (http)
+2025-02-28 16:42:59.738  INFO 27936 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-02-28 16:42:59.739  INFO 27936 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2025-02-28 16:42:59.836  INFO 27936 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2025-02-28 16:42:59.839  INFO 27936 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-02-28 16:42:59.839  INFO 27936 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 333 ms
+2025-02-28 16:42:59.864  WARN 27936 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'boardController': Unsatisfied dependency expressed through field 'boardService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'BoardService': Unsatisfied dependency expressed through field 'boardMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'boardMapper' defined in file [C:\Users\SIANA\Desktop\workspace\java\board_sts\CoreBoard\target\classes\com\core\project\model\dao\BoardMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Unsatisfied dependency expressed through method 'sqlSessionFactory' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
+2025-02-28 16:42:59.865  INFO 27936 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-02-28 16:42:59.870  INFO 27936 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2025-02-28 16:42:59.892 ERROR 27936 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+
+2025-02-28 16:43:05.421  INFO 27936 --- [restartedMain] com.core.project.CoreBoardApplication    : Starting CoreBoardApplication using Java 21.0.6 on DESKTOP-7H7S4EA with PID 27936 (C:\Users\SIANA\Desktop\workspace\java\board_sts\CoreBoard\target\classes started by SIANA in C:\Users\SIANA\Desktop\workspace\java\board_sts\CoreBoard)
+2025-02-28 16:43:05.421  INFO 27936 --- [restartedMain] com.core.project.CoreBoardApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-02-28 16:43:05.603  INFO 27936 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$a5ff8745] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2025-02-28 16:43:05.605  INFO 27936 --- [restartedMain] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-02-28 16:43:05.641  INFO 27936 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8001 (http)
+2025-02-28 16:43:05.642  INFO 27936 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-02-28 16:43:05.642  INFO 27936 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2025-02-28 16:43:05.746  INFO 27936 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2025-02-28 16:43:05.749  INFO 27936 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-02-28 16:43:05.749  INFO 27936 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 326 ms
+2025-02-28 16:43:05.897  INFO 27936 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-02-28 16:43:05.908  INFO 27936 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8001 (http) with context path ''
+2025-02-28 16:43:05.913  INFO 27936 --- [restartedMain] com.core.project.CoreBoardApplication    : Started CoreBoardApplication in 0.529 seconds (JVM running for 170.772)
+2025-02-28 16:43:05.915  INFO 27936 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-02-28 16:43:06.061  INFO 27936 --- [RMI TCP Connection(14)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2025-02-28 16:43:07.871  INFO 19252 --- [restartedMain] com.core.project.CoreBoardApplication    : Starting CoreBoardApplication using Java 21.0.6 on DESKTOP-7H7S4EA with PID 19252 (C:\Users\SIANA\Desktop\workspace\java\board_sts\CoreBoard\target\classes started by SIANA in C:\Users\SIANA\Desktop\workspace\java\board_sts\CoreBoard)
+2025-02-28 16:43:07.872  INFO 19252 --- [restartedMain] com.core.project.CoreBoardApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-02-28 16:43:07.923  INFO 19252 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-02-28 16:43:07.923  INFO 19252 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-02-28 16:43:08.662  INFO 19252 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$a1b434b8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2025-02-28 16:43:08.722  INFO 19252 --- [restartedMain] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-02-28 16:43:09.019  INFO 19252 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8001 (http)
+2025-02-28 16:43:09.031  INFO 19252 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-02-28 16:43:09.031  INFO 19252 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2025-02-28 16:43:09.258  INFO 19252 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2025-02-28 16:43:09.265  INFO 19252 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-02-28 16:43:09.265  INFO 19252 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1341 ms
+2025-02-28 16:43:09.821  INFO 19252 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-02-28 16:43:09.869  INFO 19252 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8001 (http) with context path ''
+2025-02-28 16:43:09.878  INFO 19252 --- [restartedMain] com.core.project.CoreBoardApplication    : Started CoreBoardApplication in 2.345 seconds (JVM running for 3.041)
+2025-02-28 16:43:56.800  INFO 19252 --- [http-nio-8001-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-28 16:43:56.800  INFO 19252 --- [http-nio-8001-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-02-28 16:43:56.802  INFO 19252 --- [http-nio-8001-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-02-28 16:46:29.772  INFO 19252 --- [restartedMain] com.core.project.CoreBoardApplication    : Starting CoreBoardApplication using Java 21.0.6 on DESKTOP-7H7S4EA with PID 19252 (C:\Users\SIANA\Desktop\workspace\java\board_sts\CoreBoard\target\classes started by SIANA in C:\Users\SIANA\Desktop\workspace\java\board_sts\CoreBoard)
+2025-02-28 16:46:29.772  INFO 19252 --- [restartedMain] com.core.project.CoreBoardApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-02-28 16:46:30.060  INFO 19252 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$a1b434b8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2025-02-28 16:46:30.063  INFO 19252 --- [restartedMain] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-02-28 16:46:30.127  INFO 19252 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8001 (http)
+2025-02-28 16:46:30.128  INFO 19252 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-02-28 16:46:30.128  INFO 19252 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2025-02-28 16:46:30.250  INFO 19252 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2025-02-28 16:46:30.254  INFO 19252 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-02-28 16:46:30.255  INFO 19252 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 478 ms
+2025-02-28 16:46:30.507  INFO 19252 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-02-28 16:46:30.525  INFO 19252 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8001 (http) with context path ''
+2025-02-28 16:46:30.532  INFO 19252 --- [restartedMain] com.core.project.CoreBoardApplication    : Started CoreBoardApplication in 0.799 seconds (JVM running for 203.694)
+2025-02-28 16:46:30.535  INFO 19252 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-02-28 17:01:37.133  INFO 19252 --- [restartedMain] com.core.project.CoreBoardApplication    : Starting CoreBoardApplication using Java 21.0.6 on DESKTOP-7H7S4EA with PID 19252 (C:\Users\SIANA\Desktop\workspace\java\board_sts\CoreBoard\target\classes started by SIANA in C:\Users\SIANA\Desktop\workspace\java\board_sts\CoreBoard)
+2025-02-28 17:01:37.135  INFO 19252 --- [restartedMain] com.core.project.CoreBoardApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-02-28 17:01:37.313  INFO 19252 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$a1b434b8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2025-02-28 17:01:37.315  INFO 19252 --- [restartedMain] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-02-28 17:01:37.361  INFO 19252 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8001 (http)
+2025-02-28 17:01:37.362  INFO 19252 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-02-28 17:01:37.363  INFO 19252 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2025-02-28 17:01:37.470  INFO 19252 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2025-02-28 17:01:37.474  INFO 19252 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-02-28 17:01:37.474  INFO 19252 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 337 ms
+2025-02-28 17:01:37.670  INFO 19252 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-02-28 17:01:37.682  INFO 19252 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8001 (http) with context path ''
+2025-02-28 17:01:37.685  INFO 19252 --- [restartedMain] com.core.project.CoreBoardApplication    : Started CoreBoardApplication in 0.58 seconds (JVM running for 1110.848)
+2025-02-28 17:01:37.687  INFO 19252 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-02-28 17:03:35.328  INFO 19252 --- [http-nio-8001-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-28 17:03:35.329  INFO 19252 --- [http-nio-8001-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-02-28 17:03:35.330  INFO 19252 --- [http-nio-8001-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-02-28 17:03:48.716  INFO 19252 --- [http-nio-8001-exec-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-02-28 17:03:48.798  INFO 19252 --- [http-nio-8001-exec-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-02-28 17:03:48.814  INFO 19252 --- [http-nio-8001-exec-7] jdbc.sqltiming                           : /* BoardMapper.getBoardList - board리스트 조회 */
+		SELECT
+			ROW_NUMBER() OVER(
+
+						ORDER BY reg_dt ASC, board_no ASC
+
+				) AS row_num
+			, b.board_no
+			, b.category_cd
+			, b.title
+			, b.cont
+			, b.writer_nm
+			, b.view_cnt
+			, b.reg_dt
+			, b.password
+			, c.comm_cd
+			, c.comm_cd_nm
+			, IF(DATE_SUB(NOW(), INTERVAL 3 day) < b.reg_dt, 1, 0) AS new_icon
+			, (SELECT count(*) FROM bt_tb_file btf WHERE btf.ref_tbl = 'bt_tb_board' AND btf.ref_pk = b.board_no) AS file_count
+		FROM bt_tb_board b
+
+		/* BoardMapper.getBoardListWhere - SQL - board리스트 조회 where조건 */
+
+		INNER JOIN bt_tb_comm_code c on (b.category_cd = c.comm_cd)
+
+		ORDER BY row_num desc
+		LIMIT 10 OFFSET 0
+ {executed in 1 msec}
+2025-02-28 17:03:48.836  INFO 19252 --- [http-nio-8001-exec-7] jdbc.sqltiming                           : /* BoardMapper.getBoardCount - board리스트 count 조회 */
+		SELECT
+			COUNT(BOARD_NO)
+		FROM BT_TB_BOARD B
+
+		/* BoardMapper.getBoardListWhere - SQL - board리스트 조회 where조건 */
+
+		INNER JOIN bt_tb_comm_code c on (B.category_cd = c.comm_cd)
+ {executed in 1 msec}
